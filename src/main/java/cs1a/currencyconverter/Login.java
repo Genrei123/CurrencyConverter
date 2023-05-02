@@ -1003,6 +1003,10 @@ public class Login extends javax.swing.JFrame {
         String name = register_nametxt.getText();
         String password = register_passwordtxt.getText();
         String confirm = register_retypetxt.getText();
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
         
         if (!Objects.equals(password, confirm))
         {
@@ -1018,32 +1022,46 @@ public class Login extends javax.swing.JFrame {
                 Class.forName("com.mysql.cj.jdbc.Driver");
 
                 // Establish a connection to the database
-                
-                
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/userinfo", "root", "");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/userinfo", "root", "");
 
-                // Prepare an SQL statement for insertion
-                PreparedStatement stmt = conn.prepareStatement("INSERT INTO userdata (username, password) VALUES (?, ?)");
+                stmt = conn.prepareStatement("SELECT * FROM userdata WHERE username = ?");
+                stmt.setString(1, name);
+                rs = stmt.executeQuery();
 
-                // Retrieve the values of the registration form's text fields and insert them into the SQL statement
-                stmt.setString(1, register_nametxt.getText());
-                stmt.setString(2, register_passwordtxt.getText());
-
-
-                // Execute the SQL statement
-                int rowsAffected = stmt.executeUpdate();
-
-                if (rowsAffected > 0) {
-                    // Registration successful
-                    System.out.println("Account for: " + name + " is successfully created");
-                    JOptionPane.showMessageDialog(null, "Success: Your account has been made!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    // Registration failed
-                    JOptionPane.showMessageDialog(this, "Registration failed.");
+                if (rs.next())
+                {
+                    //If may account
+                    JOptionPane.showMessageDialog(this, "Account already exists");
+                    stmt.close();
                 }
 
-                stmt.close();
-                conn.close();
+                else
+                {
+                    // Prepare an SQL statement for insertion
+                    stmt = conn.prepareStatement("INSERT INTO userdata (username, password) VALUES (?, ?)");
+
+                    // Retrieve the values of the registration form's text fields and insert them into the SQL statement
+                    stmt.setString(1, register_nametxt.getText());
+                    stmt.setString(2, register_passwordtxt.getText());
+
+
+                    // Execute the SQL statement
+                    int rowsAffected = stmt.executeUpdate();
+
+                    if (rowsAffected > 0) {
+                        // Registration successful
+                        System.out.println("Account for: " + name + " is successfully created");
+                        JOptionPane.showMessageDialog(null, "Success: Your account has been made!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        // Registration failed
+                        JOptionPane.showMessageDialog(this, "Registration failed.");
+                    }
+
+                    stmt.close();
+                    conn.close();
+                }
+
+
             }
 
             catch (SQLException ex) {
@@ -1144,7 +1162,7 @@ public class Login extends javax.swing.JFrame {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/transactions", "root", "");
             LocalDateTime now = LocalDateTime.now();
             // Prepare an SQL statement for insertion
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO log (Name, Date, `From Currency`, `From Conversion`, `To Currency`, `To Conversion`) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO log (Name, Date, `From Currency`, `From Value`, `To Value`, `Result`) VALUES (?, ?, ?, ?, ?, ?)");
 
             // Retrieve the values of the registration form's text fields and insert them into the SQL statement
             stmt.setString(1, logintxt.getText());
@@ -1195,6 +1213,8 @@ public class Login extends javax.swing.JFrame {
 
     private void show_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_buttonActionPerformed
         // TODO add your handling code here:
+        jTable2.setModel(new DefaultTableModel(null, new String[] {"Name", "Date", "From Currency", "From Value", "To Value", "Result"}));
+
         try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
 
