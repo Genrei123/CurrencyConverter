@@ -1052,6 +1052,11 @@ public class Login extends javax.swing.JFrame {
                         // Registration successful
                         System.out.println("Account for: " + name + " is successfully created");
                         JOptionPane.showMessageDialog(null, "Success: Your account has been made!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        pnlCards.removeAll();
+                        pnlCards.add(Login);
+                        pnlCards.repaint();
+                        pnlCards.revalidate();
+
                     } else {
                         // Registration failed
                         JOptionPane.showMessageDialog(this, "Registration failed.");
@@ -1177,7 +1182,7 @@ public class Login extends javax.swing.JFrame {
 
             if (rowsAffected > 0) {
                 System.out.println("Transaction of: " + logintxt.getText() + " is successfully created");
-                JOptionPane.showMessageDialog(null, from_currency + from + " is " + to_currency + result, "Success!", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, from_currency + " " + from + " is " + to_currency + " " + result, "Success!", JOptionPane.INFORMATION_MESSAGE);
             } else {
 
                 JOptionPane.showMessageDialog(this, "Conversion failed.");
