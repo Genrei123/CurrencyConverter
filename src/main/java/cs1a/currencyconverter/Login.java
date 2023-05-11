@@ -114,6 +114,9 @@ public class Login extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        faq = new javax.swing.JButton();
         Home = new javax.swing.JPanel();
         welcometext = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -140,7 +143,7 @@ public class Login extends javax.swing.JFrame {
         sidepane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homebtn.setBackground(new java.awt.Color(188, 156, 34));
-        homebtn.setFont(new java.awt.Font("Segue UI", 0, 20)); // NOI18N
+        homebtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         homebtn.setForeground(new java.awt.Color(255, 255, 255));
         homebtn.setText("Home");
         homebtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -207,7 +210,7 @@ public class Login extends javax.swing.JFrame {
         settingsbtn.setBackground(new java.awt.Color(188, 156, 34));
         settingsbtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         settingsbtn.setForeground(new java.awt.Color(255, 255, 255));
-        settingsbtn.setText("Settings");
+        settingsbtn.setText("FAQs");
         settingsbtn.setBorder(null);
         settingsbtn.setBorderPainted(false);
         settingsbtn.setContentAreaFilled(false);
@@ -802,6 +805,23 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Need Help?");
 
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("This program grabs it's data from exchangerate.host which is known for their real time currency conversion.");
+
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("If you are confused or need help with the names of the currency converter. You can refer to this to navigate the exchange rate name.");
+
+        faq.setForeground(new java.awt.Color(255, 255, 255));
+        faq.setText("This.");
+        faq.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq.setContentAreaFilled(false);
+        faq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        faq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                faqActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SettingsLayout = new javax.swing.GroupLayout(Settings);
         Settings.setLayout(SettingsLayout);
         SettingsLayout.setHorizontalGroup(
@@ -809,6 +829,9 @@ public class Login extends javax.swing.JFrame {
             .addGroup(SettingsLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(faq, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel13)
                     .addComponent(jLabel5)
                     .addGroup(SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -825,7 +848,13 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(faq, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
@@ -1364,7 +1393,18 @@ public class Login extends javax.swing.JFrame {
 
 
 
-    } //GEN-LAST:event_DownloadActionPerformed
+    }//GEN-LAST:event_DownloadActionPerformed
+
+    private void faqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faqActionPerformed
+        // TODO add your handling code here:
+        try {
+            URL url = new URL("https://docs.google.com/document/d/1TFkGKyjk40uhDvLiBWHBkAUgVSMyVRZANq1QyOJcDmA/edit?usp=sharing");
+            Desktop.getDesktop().browse(url.toURI());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_faqActionPerformed
 
 
 
@@ -1414,6 +1454,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton convert_btn;
     private javax.swing.JButton convertbtn;
     private javax.swing.JButton exitbtn;
+    private javax.swing.JButton faq;
     private javax.swing.JComboBox<String> from_box;
     private javax.swing.JTextField from_value;
     private javax.swing.JButton homebtn;
@@ -1421,6 +1462,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

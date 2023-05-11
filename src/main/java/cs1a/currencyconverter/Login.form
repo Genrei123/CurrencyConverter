@@ -202,7 +202,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Settings"/>
+            <Property name="text" type="java.lang.String" value="FAQs"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -1520,6 +1520,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="faq" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
@@ -1541,7 +1544,13 @@
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="488" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="faq" min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace pref="362" max="32767" attributes="0"/>
                           <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -1612,6 +1621,42 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Need Help?"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel13">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="This program grabs it&apos;s data from exchangerate.host which is known for their real time currency conversion."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel14">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="If you are confused or need help with the names of the currency converter. You can refer to this to navigate the exchange rate name."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="faq">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="This."/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="faqActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
